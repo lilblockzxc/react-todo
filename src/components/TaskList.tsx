@@ -1,9 +1,10 @@
+import { List } from "@mui/material";
 import React from "react";
 import { TaskItem } from "./TaskItem";
 
 const TaskList = ({ tasks, remove }) => {
   return (
-    <div>
+    <List>
       <h1>ToDo</h1>
       {tasks.map((task, index) => {
         return (
@@ -15,7 +16,7 @@ const TaskList = ({ tasks, remove }) => {
           />
         );
       })}
-    </div>
+    </List>
   );
 };
 
