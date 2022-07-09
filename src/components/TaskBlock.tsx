@@ -20,7 +20,7 @@ export const TaskBlock = () => {
   const removeTask = (task) => {
     return setTasks(tasks.filter((x) => x.id !== task.id));
   };
-  const editTask = () => {};
+  //const editTask = () => {};
   const ifNameChanged = (name) => {
     if (name.length < 3) {
       setBool(true);
