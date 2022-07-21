@@ -24,7 +24,7 @@ export const TaskItem = ({ task, number, remove }) => {
           ifChecked(checked);
         }}
       />
-        <Button  variant="outlined">Редактировать</Button>
+      <Button variant="outlined">Редактировать</Button>
       <Button
         variant="outlined"
         onClick={() => {

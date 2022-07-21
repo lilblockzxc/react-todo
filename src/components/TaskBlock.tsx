@@ -42,6 +42,8 @@ export const TaskBlock = () => {
     window.localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
+  //const taskEdit = (x) => {};
+
   return (
     <div className="App">
       <h2>{taskState}</h2>
