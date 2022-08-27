@@ -1,32 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { FC } from "react";
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { TaskBlock } from "./components/TaskBlock";
-import { NavBar } from "./components/NavBar";
+import { TaskBlock } from "./Tasks/TaskBlock";
+import { NavBar } from "./Navigations/NavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Login } from "./Login/Login";
 import { Registration } from "./Registration/Registration";
+import { TaskProvider } from "./Context";
+import { TestPost } from "./testNest";
 
-const App = () => {
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    fetch("/api")
-      .then((response) => response.json())
-      .then((response) => setData(response.message));
-  }, []);
-
+const App: FC = () => {
+  console.log("render APP");
   return (
-    <BrowserRouter>
-      <h1>{!data ? "Loading..." : data}</h1>
+    <TaskProvider>
+      <BrowserRouter>
+        <NavBar />
 
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<TaskBlock />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/reg" element={<Registration />}></Route>
-      </Routes>
-    </BrowserRouter>
+        {/* <TestPost /> */}
+        <Routes>
+          <Route path="/" element={<TaskBlock />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/reg" element={<Registration />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </TaskProvider>
   );
 };
 
